@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Assignment2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENT_MASTER">
+          <Key>
+            <PropertyRef Name="CLIENTNO" />
+          </Key>
+          <Property Name="CLIENTNO" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="30" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="30" />
+          <Property Name="CITY" Type="varchar" MaxLength="15" />
+          <Property Name="STATE" Type="varchar" MaxLength="15" />
+          <Property Name="BALDUE" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="PRODUCT_MASTER">
+          <Key>
+            <PropertyRef Name="PRODUCTNO" />
+          </Key>
+          <Property Name="PRODUCTNO" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PROFITPERC" Type="numeric" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="UNITMEASURE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="QTYONHAND" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="REORDERLVL" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="SELLPRICE" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="COSTPRICE" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Assignment2.dbo.SALES_ORDER_DETAILS' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SALES_ORDER_DETAILS">
+          <Property Name="ORDERNO" Type="varchar" MaxLength="6" />
+          <Property Name="PRODUCTNO" Type="varchar" MaxLength="6" />
+          <Property Name="QTYORDERED" Type="numeric" Precision="8" Scale="0" />
+          <Property Name="QTYDISP" Type="numeric" Precision="8" Scale="0" />
+          <Property Name="PRODUCTRATE" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>-->
+        <EntityType Name="SALESMAN_MASTER">
+          <Key>
+            <PropertyRef Name="SALESMANNO" />
+          </Key>
+          <Property Name="SALESMANNO" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="30" />
+          <Property Name="CITY" Type="varchar" MaxLength="15" />
+          <Property Name="PINCODE" Type="numeric" Precision="8" Scale="0" />
+          <Property Name="STATE" Type="varchar" MaxLength="15" />
+          <Property Name="SALAMT" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="TGTTOGET" Type="numeric" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="YTDSALES" Type="numeric" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="REMARKS" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityContainer Name="Assignment2ModelStoreContainer">
+          <EntitySet Name="CLIENT_MASTER" EntityType="Self.CLIENT_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT_MASTER" EntityType="Self.PRODUCT_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SALESMAN_MASTER" EntityType="Self.SALESMAN_MASTER" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Assignment2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIENT_MASTER">
+          <Key>
+            <PropertyRef Name="CLIENTNO" />
+          </Key>
+          <Property Name="CLIENTNO" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BALDUE" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="PRODUCT_MASTER">
+          <Key>
+            <PropertyRef Name="PRODUCTNO" />
+          </Key>
+          <Property Name="PRODUCTNO" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROFITPERC" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="UNITMEASURE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="QTYONHAND" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="REORDERLVL" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="SELLPRICE" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="COSTPRICE" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SALESMAN_MASTER">
+          <Key>
+            <PropertyRef Name="SALESMANNO" />
+          </Key>
+          <Property Name="SALESMANNO" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PINCODE" Type="Decimal" Precision="8" Scale="0" />
+          <Property Name="STATE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SALAMT" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="TGTTOGET" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="YTDSALES" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Assignment2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENT_MASTER" EntityType="Self.CLIENT_MASTER" />
+          <EntitySet Name="PRODUCT_MASTER" EntityType="Self.PRODUCT_MASTER" />
+          <EntitySet Name="SALESMAN_MASTER" EntityType="Self.SALESMAN_MASTER" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Assignment2ModelStoreContainer" CdmEntityContainer="Assignment2Entities">
+          <EntitySetMapping Name="CLIENT_MASTER">
+            <EntityTypeMapping TypeName="Assignment2Model.CLIENT_MASTER">
+              <MappingFragment StoreEntitySet="CLIENT_MASTER">
+                <ScalarProperty Name="CLIENTNO" ColumnName="CLIENTNO" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="BALDUE" ColumnName="BALDUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_MASTER">
+            <EntityTypeMapping TypeName="Assignment2Model.PRODUCT_MASTER">
+              <MappingFragment StoreEntitySet="PRODUCT_MASTER">
+                <ScalarProperty Name="PRODUCTNO" ColumnName="PRODUCTNO" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="PROFITPERC" ColumnName="PROFITPERC" />
+                <ScalarProperty Name="UNITMEASURE" ColumnName="UNITMEASURE" />
+                <ScalarProperty Name="QTYONHAND" ColumnName="QTYONHAND" />
+                <ScalarProperty Name="REORDERLVL" ColumnName="REORDERLVL" />
+                <ScalarProperty Name="SELLPRICE" ColumnName="SELLPRICE" />
+                <ScalarProperty Name="COSTPRICE" ColumnName="COSTPRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALESMAN_MASTER">
+            <EntityTypeMapping TypeName="Assignment2Model.SALESMAN_MASTER">
+              <MappingFragment StoreEntitySet="SALESMAN_MASTER">
+                <ScalarProperty Name="SALESMANNO" ColumnName="SALESMANNO" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="PINCODE" ColumnName="PINCODE" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="SALAMT" ColumnName="SALAMT" />
+                <ScalarProperty Name="TGTTOGET" ColumnName="TGTTOGET" />
+                <ScalarProperty Name="YTDSALES" ColumnName="YTDSALES" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
